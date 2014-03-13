@@ -3,15 +3,21 @@ package br.com.seriesmusculacao.activities;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.os.Bundle;
-import android.widget.Adapter;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import br.com.seriesmusculacao.R;
 import br.com.seriesmusculacao.to.GrupoMuscularTO;
 
-public class HomeActivity extends Activity {
+public class GrupoMuscularActivity extends Activity implements OnItemClickListener {
 
 	private TextView tv;
+	private ListView lstView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +37,17 @@ public class HomeActivity extends Activity {
 		to1.setTipo("Body");
 		to1.setDescricao("Peitoral");
 		
-		ArrayList<GrupoMuscularTO> lstGrupoMuscular = new ArrayList<GrupoMuscularTO>();
-		lstGrupoMuscular.add(0, to1);
+		ArrayList<GrupoMuscularTO> lista = new ArrayList<GrupoMuscularTO>();
+		lista.add(to1);
 		
+		lstView = (ListView) findViewById(R.id.lstGrMusculo);
+		lstView.setAdapter(null);
+		lstView.setOnItemClickListener(this);
+	}
+
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
 		
 	}
-	
 	
 }

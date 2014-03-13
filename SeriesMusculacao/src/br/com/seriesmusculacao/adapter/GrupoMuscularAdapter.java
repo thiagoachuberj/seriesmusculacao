@@ -39,6 +39,10 @@ public class GrupoMuscularAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		GrupoMuscularTO to = lista.get(position);
+		if (convertView == null) {
+			
+		}
+		
 		
 		return null;
 	}

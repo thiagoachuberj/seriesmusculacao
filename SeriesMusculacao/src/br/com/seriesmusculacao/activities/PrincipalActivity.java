@@ -20,6 +20,7 @@ public class PrincipalActivity extends Activity {
 		String login = editText.getText().toString();
 		Intent it = new Intent(this, HomeActivity.class);
 		it.putExtra("login", login);
+		
 		startActivity(it);
 	}
 
