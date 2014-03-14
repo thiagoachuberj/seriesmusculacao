@@ -3,27 +3,28 @@ package br.com.seriesmusculacao.activities;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import br.com.seriesmusculacao.R;
-import br.com.seriesmusculacao.to.GrupoMuscularTO;
+import br.com.seriesmusculacao.adapter.GrupoMuscularAdapter;
+import br.com.seriesmusculacao.bean.GrupoMuscularBean;
 
 public class GrupoMuscularActivity extends Activity implements OnItemClickListener {
 
 	private TextView tv;
 	private ListView lstView;
+	private ArrayList<GrupoMuscularBean> lista;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.home_activity);
+		setContentView(R.layout.grupo_muscular_activity);
 		
 		Bundle it = getIntent().getExtras();
 		
@@ -32,21 +33,47 @@ public class GrupoMuscularActivity extends Activity implements OnItemClickListen
 			tv.setText(tv.getText() + " " + it.getString("login") + "!");
 		}
 		
-		GrupoMuscularTO to1 = new GrupoMuscularTO();
-		to1.setNome("Peitoral");
-		to1.setTipo("Body");
-		to1.setDescricao("Peitoral");
+		GrupoMuscularBean to1 = new GrupoMuscularBean();
+		to1.setNome("Peito");
+
+		GrupoMuscularBean to2 = new GrupoMuscularBean();
+		to2.setNome("Costas");
+
+		GrupoMuscularBean to3 = new GrupoMuscularBean();
+		to3.setNome("Braço");
 		
-		ArrayList<GrupoMuscularTO> lista = new ArrayList<GrupoMuscularTO>();
+		GrupoMuscularBean to4 = new GrupoMuscularBean();
+		to4.setNome("Perna");
+				
+		lista = new ArrayList<GrupoMuscularBean>();
 		lista.add(to1);
+		lista.add(to2);
+		lista.add(to3);
+		lista.add(to4);
 		
 		lstView = (ListView) findViewById(R.id.lstGrMusculo);
-		lstView.setAdapter(null);
+		lstView.setAdapter(new GrupoMuscularAdapter(this, lista));
 		lstView.setOnItemClickListener(this);
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Intent intent = new Intent(this, CarregaSeriesActivity.class);
+		
+		String opcaoSelecionada = lista.get(position).getNome();
+		
+		if(opcaoSelecionada.equals("peito")) {
+			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Peito");
+		}
+		else if(opcaoSelecionada.equals("costas")) {
+			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Costas");
+		}
+		else if(opcaoSelecionada.equals("braco")) {
+			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Braço");
+		}
+		else {
+			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Perna");
+		}
 		
 	}
 	

@@ -1,6 +1,6 @@
-package br.com.seriesmusculacao.to;
+package br.com.seriesmusculacao.bean;
 
-public class GrupoMuscularTO {
+public class GrupoMuscularBean {
 
 	private String nome;
 	private String tipo;

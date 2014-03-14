@@ -18,7 +18,7 @@ public class PrincipalActivity extends Activity {
 	public void realizarLogin(View view) {
 		EditText editText = (EditText) findViewById(R.id.cmpLogin);
 		String login = editText.getText().toString();
-		Intent it = new Intent(this, HomeActivity.class);
+		Intent it = new Intent(this, GrupoMuscularActivity.class);
 		it.putExtra("login", login);
 		
 		startActivity(it);

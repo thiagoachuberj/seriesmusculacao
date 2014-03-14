@@ -1,0 +1,27 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="1">
+    
+    <TableRow>
+	    <TextView 
+		    android:id="@+id/boasVindas"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:text="Olá"/>
+	</TableRow>
+	<TableRow>    
+        <TextView
+            android:id="@+id/selecione"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selecione o grupo muscular para visualizar as séries cadastradas:" />
+	</TableRow>
+	<TableRow>
+        <ListView
+            android:id="@+id/lstGrMusculo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+	</TableRow>
+</TableLayout>
