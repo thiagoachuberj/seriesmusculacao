@@ -28,6 +28,10 @@
             android:name="br.com.seriesmusculacao.activities.GrupoMuscularActivity"
             android:label="Tela Home"/>
         
+        <activity 
+            android:name="br.com.seriesmusculacao.activities.CarregaSeriesActivity"
+            android:label="Tela Carrega Series"/>
+        
     </application>
 
 </manifest>

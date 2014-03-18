@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -62,19 +63,20 @@ public class GrupoMuscularActivity extends Activity implements OnItemClickListen
 		
 		String opcaoSelecionada = lista.get(position).getNome();
 		
-		if(opcaoSelecionada.equals("peito")) {
+		if(opcaoSelecionada.equals("Peito")) {
 			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Peito");
 		}
-		else if(opcaoSelecionada.equals("costas")) {
+		else if(opcaoSelecionada.equals("Costas")) {
 			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Costas");
 		}
-		else if(opcaoSelecionada.equals("braco")) {
+		else if(opcaoSelecionada.equals("Braço")) {
 			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Braço");
 		}
 		else {
 			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Perna");
 		}
 		
+		startActivity(intent);
 	}
 	
 }
