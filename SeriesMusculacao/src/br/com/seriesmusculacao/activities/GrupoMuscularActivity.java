@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -13,13 +12,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import br.com.seriesmusculacao.R;
 import br.com.seriesmusculacao.adapter.GrupoMuscularAdapter;
-import br.com.seriesmusculacao.bean.GrupoMuscularBean;
+import br.com.seriesmusculacao.bean.AGrupamentoMuscular;
+import br.com.seriesmusculacao.bean.Abdomen;
+import br.com.seriesmusculacao.bean.Braco;
+import br.com.seriesmusculacao.bean.Costas;
+import br.com.seriesmusculacao.bean.Peito;
+import br.com.seriesmusculacao.bean.Perna;
 
 public class GrupoMuscularActivity extends Activity implements OnItemClickListener {
 
 	private TextView tv;
 	private ListView lstView;
-	private ArrayList<GrupoMuscularBean> lista;
+	private ArrayList<AGrupamentoMuscular> lista;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,23 +38,27 @@ public class GrupoMuscularActivity extends Activity implements OnItemClickListen
 			tv.setText(tv.getText() + " " + it.getString("login") + "!");
 		}
 		
-		GrupoMuscularBean to1 = new GrupoMuscularBean();
+		Peito to1 = new Peito();
 		to1.setNome("Peito");
 
-		GrupoMuscularBean to2 = new GrupoMuscularBean();
+		Costas to2 = new Costas();
 		to2.setNome("Costas");
 
-		GrupoMuscularBean to3 = new GrupoMuscularBean();
+		Braco to3 = new Braco();
 		to3.setNome("Braço");
 		
-		GrupoMuscularBean to4 = new GrupoMuscularBean();
+		Perna to4 = new Perna();
 		to4.setNome("Perna");
+		
+		Abdomen to5 = new Abdomen();
+		to5.setNome("Abdômen");
 				
-		lista = new ArrayList<GrupoMuscularBean>();
+		lista = new ArrayList<AGrupamentoMuscular>();
 		lista.add(to1);
 		lista.add(to2);
 		lista.add(to3);
 		lista.add(to4);
+		lista.add(to5);
 		
 		lstView = (ListView) findViewById(R.id.lstGrMusculo);
 		lstView.setAdapter(new GrupoMuscularAdapter(this, lista));
@@ -59,22 +67,11 @@ public class GrupoMuscularActivity extends Activity implements OnItemClickListen
 
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		Intent intent = new Intent(this, CarregaSeriesActivity.class);
+		Intent intent = null;
 		
-		String opcaoSelecionada = lista.get(position).getNome();
+		AGrupamentoMuscular grupoMuscular = lista.get(position);
 		
-		if(opcaoSelecionada.equals("Peito")) {
-			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Peito");
-		}
-		else if(opcaoSelecionada.equals("Costas")) {
-			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Costas");
-		}
-		else if(opcaoSelecionada.equals("Braço")) {
-			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Braço");
-		}
-		else {
-			intent.putExtra("key.serie.grdMuscular.selecionado", "Você clicou na serie de Perna");
-		}
+		intent = grupoMuscular.preparaTelaGrupamento(this, grupoMuscular);
 		
 		startActivity(intent);
 	}

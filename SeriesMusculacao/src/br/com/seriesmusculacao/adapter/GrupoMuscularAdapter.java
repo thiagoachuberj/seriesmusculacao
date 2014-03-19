@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import br.com.seriesmusculacao.R;
-import br.com.seriesmusculacao.bean.GrupoMuscularBean;
+import br.com.seriesmusculacao.bean.AGrupamentoMuscular;
 
 public class GrupoMuscularAdapter extends BaseAdapter {
 
-	private List<GrupoMuscularBean> lista;
+	private List<AGrupamentoMuscular> lista;
 	private Context context;
 	
-	public GrupoMuscularAdapter(Context context, List<GrupoMuscularBean> lista) {
+	public GrupoMuscularAdapter(Context context, List<AGrupamentoMuscular> lista) {
 		this.context = context;
 		this.lista = lista;
 	}
@@ -29,7 +29,7 @@ public class GrupoMuscularAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		GrupoMuscularBean to = lista.get(position);
+		AGrupamentoMuscular to = lista.get(position);
 		return to;
 	}
 
@@ -56,7 +56,7 @@ public class GrupoMuscularAdapter extends BaseAdapter {
 			holder = (ViewHolder) view.getTag();
 		}
 		
-		GrupoMuscularBean bean = (GrupoMuscularBean) getItem(position);
+		AGrupamentoMuscular bean = (AGrupamentoMuscular) getItem(position);
 		holder.nome.setText(bean.getNome());
 		
 		return view;
