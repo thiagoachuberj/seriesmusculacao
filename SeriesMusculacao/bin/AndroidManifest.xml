@@ -36,6 +36,18 @@
             android:name="br.com.seriesmusculacao.activities.AbdomenActivity"
             android:label="Tela Abdomen"/>
         
+        <activity 
+            android:name="br.com.seriesmusculacao.activities.SerieABActivity"
+            android:label="Tela Serie AB"/>
+        
+        <activity 
+            android:name="br.com.seriesmusculacao.activities.SerieABCActivity"
+            android:label="Tela Serie ABC"/>
+        
+        <activity 
+            android:name="br.com.seriesmusculacao.activities.ListSeriesPeitoTricepsActivity"
+            android:label="Tela Lista Serie Peito/Tríceps"/>
+        
     </application>
 
 </manifest>

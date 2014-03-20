@@ -8,16 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import br.com.seriesmusculacao.R;
-import br.com.seriesmusculacao.bean.AGrupamentoMuscular;
+import br.com.seriesmusculacao.bean.tiposeries.ATipoSerie;
 
-public class GrupoMuscularAdapter extends BaseAdapter {
+public class TipoSerieAdapter extends BaseAdapter {
 
-	private List<AGrupamentoMuscular> lista;
+	private List<ATipoSerie> lista;
 	private Context context;
 	
-	public GrupoMuscularAdapter(Context context, List<AGrupamentoMuscular> lista) {
+	public TipoSerieAdapter(Context context, List<ATipoSerie> lista) {
 		this.context = context;
 		this.lista = lista;
 	}
@@ -29,7 +30,7 @@ public class GrupoMuscularAdapter extends BaseAdapter {
 
 	@Override
 	public Object getItem(int position) {
-		AGrupamentoMuscular to = lista.get(position);
+		ATipoSerie to = lista.get(position);
 		return to;
 	}
 
@@ -49,6 +50,7 @@ public class GrupoMuscularAdapter extends BaseAdapter {
 			
 			holder = new ViewHolder();
 			holder.nome = (TextView) view.findViewById(R.id.nome);
+			holder.descricao = (TextView) view.findViewById(R.id.descricao);
 			
 			view.setTag(holder);
 		}
@@ -56,17 +58,17 @@ public class GrupoMuscularAdapter extends BaseAdapter {
 			holder = (ViewHolder) view.getTag();
 		}
 		
-		AGrupamentoMuscular bean = (AGrupamentoMuscular) getItem(position);
+		ATipoSerie bean = (ATipoSerie) getItem(position);
 		holder.nome.setText(bean.getNome());
+		holder.descricao.setText(bean.getDescricao());
 		
 		return view;
 	}
 	
-	@SuppressWarnings("unused")
 	private class ViewHolder {
 		private TextView nome;
-		private TextView tipo;
 		private TextView descricao;
+		private ImageView icone;
 	}
 
 }
