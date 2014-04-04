@@ -26,25 +26,20 @@ public class SerieABCActivity extends Activity implements OnItemClickListener {
 		
 		PeitoTriceps pt = new PeitoTriceps();
 		pt.setNome("Peito/Tríceps");
-		pt.setDescricao("Séries relacionado aos grupamentos peito e tríceps");
+		pt.setDescricao("Séries relacionado aos grupamentos Peito e Tríceps");
 		
 		PeitoTriceps pt1 = new PeitoTriceps();
-		pt1.setNome("Peito/Tríceps");
-		pt1.setDescricao("Séries relacionado aos grupamentos peito e tríceps");
+		pt1.setNome("Costas/Bíceps");
+		pt1.setDescricao("Séries relacionado aos grupamentos Costas e Bíceps");
 		
 		PeitoTriceps pt2 = new PeitoTriceps();
-		pt2.setNome("Peito/Tríceps");
-		pt2.setDescricao("Séries relacionado aos grupamentos peito e tríceps");
-		
-		PeitoTriceps pt3 = new PeitoTriceps();
-		pt3.setNome("Peito/Tríceps");
-		pt3.setDescricao("Séries relacionado aos grupamentos peito e tríceps");
+		pt2.setNome("Ombro/Perna");
+		pt2.setDescricao("Séries relacionado aos grupamentos Ombro e Perna");
 		
 		lista = new ArrayList<ATipoGrupamentoSerie>();
 		lista.add(pt);
 		lista.add(pt1);
 		lista.add(pt2);
-		lista.add(pt3);
 		
 		lstView = (ListView) findViewById(R.id.lstTipoGrupamento);
 		lstView.setAdapter(new TipoGrupamentoAdapter(lista, this));
