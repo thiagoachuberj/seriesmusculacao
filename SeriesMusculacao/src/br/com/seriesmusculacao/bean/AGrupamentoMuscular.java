@@ -3,7 +3,7 @@
  */
 package br.com.seriesmusculacao.bean;
 
-import br.com.seriesmusculacao.activities.GrupoMuscularActivity;
+import br.com.seriesmusculacao.activities.GrupoMuscularListActivity;
 import android.content.Intent;
 
 /**
@@ -36,6 +36,6 @@ public abstract class AGrupamentoMuscular {
 		this.descricao = descricao;
 	}
 	
-	public abstract Intent preparaTelaGrupamento(GrupoMuscularActivity grupoMuscularActivity, AGrupamentoMuscular grupamento);
+	public abstract Intent preparaTelaGrupamento(GrupoMuscularListActivity grupoMuscularActivity, AGrupamentoMuscular grupamento);
 	
 }

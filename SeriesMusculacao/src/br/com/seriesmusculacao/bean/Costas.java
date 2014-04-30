@@ -1,13 +1,13 @@
 package br.com.seriesmusculacao.bean;
 
 import android.content.Intent;
-import br.com.seriesmusculacao.activities.GrupoMuscularActivity;
+import br.com.seriesmusculacao.activities.GrupoMuscularListActivity;
 
 public class Costas extends AGrupamentoMuscular {
 
 	@Override
 	public Intent preparaTelaGrupamento(
-			GrupoMuscularActivity grupoMuscularActivity,
+			GrupoMuscularListActivity grupoMuscularActivity,
 			AGrupamentoMuscular grupamento) {
 		// TODO Auto-generated method stub
 		return null;
